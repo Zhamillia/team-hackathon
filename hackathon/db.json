@@ -1273,12 +1273,12 @@
       "id": 159
     },
     {
-      "name": "Перчатки MMA",
-      "description": "Половинчатые рукавицы и полая конструкция ладони, хорошая воздухопроницаемость, предотвращает потоотделение. Расширенный браслет с крепежной лентой для максимальной защиты. Изготовлен из высококачественной искусственной кожи с утолщенную пену, гибкий и носимый. Идеально подходит для тренировок по ММА, муай-тай и боксу.",
-      "price": 2100,
-      "picture": "https://img.joomcdn.net/682b1eee0ddf1f207ab0ae1e7ee4522bdc7a8b2f_original.jpeg",
-      "type": "sport",
-      "id": 160
+      "type": "car",
+      "name": "mercedes",
+      "description": "new",
+      "price": 10000,
+      "picture": "https://upload.wikimedia.org/wikipedia/commons/9/9a/Gull_portrait_ca_usa.jpg",
+      "id": 162
     }
   ]
 }
