@@ -5,20 +5,11 @@ import AdminPage from "./pages/AdminPage";
 import CartPage from "./pages/CartPage";
 import EditProductPage from "./pages/EditProductPage";
 import HomePage from "./pages/HomePage";
-import LoginPage from "./pages/LoginPage";
-import PaidPage from "./pages/PaidPage";
 import ProductDetailsPage from "./pages/ProductDetailsPage";
 import ProductsPage from "./pages/ProductsPage";
 import RegistrationPage from "./pages/RegistrationPage";
 import LoginPage from "./pages/LoginPage";
-import RegistrationPage from "./pages/RegistrationPage";
-import HomePage from "./pages/HomePage";
-import AdminPage from "./pages/AdminPage";
-import ProductDetailsPage from "./pages/ProductDetailsPage";
-import ProductsPage from "./pages/ProductsPage";
 import PaidPage from "./pages/PaidPage";
-import EditProductPage from "./pages/EditProductPage";
-import CartPage from "./pages/CartPage";
 
 const MainRoutes = () => {
   const PUBLIC_ROUTES = [

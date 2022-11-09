@@ -3,4 +3,4 @@ export const ACTIONS = {
   GET_PRODUCT_DETAILS: "GET_PRODUCT_DETAILS",
 };
 
-export const JSON_API_PRODUCTS = "http://localhost:8000/products";
+export const JSON_API_PRODUCTS = "http://localhost:8001/products";
