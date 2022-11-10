@@ -40,7 +40,9 @@ footer {
 }
 
 #register-btn {
+
   /* background-color: transparent; */
+
   border: 2px solid black;
   border-radius: 3px;
   padding: 5px 0;
@@ -97,6 +99,8 @@ footer {
   margin-bottom: 15px;
 }
 #log-btn {
+
+
   border: 2px solid black;
   border-radius: 3px;
   padding: 5px 0;
