@@ -1,12 +1,16 @@
-
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Link from "@mui/material/Link";
-
+// import "../../styles/Footer.css";
 export default function Footer() {
   return (
-    <footer>
+    <footer
+    // style={{
+    //   position: "fixed",
+    //   bottom: 250,
+    // }}
+    >
       <Box
         px={{ xs: 3, sm: 10 }}
         py={{ xs: 5, sm: 10 }}

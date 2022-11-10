@@ -51,6 +51,7 @@ const AuthContextProvider = ({ children }) => {
   };
 
   const logout = () => {
+    console.log("ctyvgbuhn");
     localStorage.removeItem("token");
     localStorage.removeItem("username");
     setUser("");
