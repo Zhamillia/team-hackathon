@@ -1,7 +1,14 @@
 import React from "react";
 
 const HomePage = () => {
-  return <div>HomePage</div>;
+  return (
+    <div
+      style={{
+        height: "100vh",
+      }}>
+      HomePage
+    </div>
+  );
 };
 
 export default HomePage;

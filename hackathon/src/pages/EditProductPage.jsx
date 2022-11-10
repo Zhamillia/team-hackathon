@@ -1,7 +1,14 @@
 import React from "react";
 
 const EditProductPage = () => {
-  return <div>EditProductPage</div>;
+  return (
+    <div
+      style={{
+        height: "100vh",
+      }}>
+      EditProductPage
+    </div>
+  );
 };
 
 export default EditProductPage;

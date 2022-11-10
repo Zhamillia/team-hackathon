@@ -1,7 +1,14 @@
 import React from "react";
 
 const CartPage = () => {
-  return <div>CartPage</div>;
+  return (
+    <div
+      style={{
+        height: "100vh",
+      }}>
+      CartPage
+    </div>
+  );
 };
 
 export default CartPage;

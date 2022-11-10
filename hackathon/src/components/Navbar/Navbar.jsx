@@ -14,8 +14,9 @@ import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
 
 // custom
-import { ThemeProvider, createTheme } from "@mui/material/styles";
+
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../contexts/AuthContextProvider";
 
 const pages = [
   {
@@ -38,15 +39,6 @@ const settings = [
   },
 ];
 
-const darkTheme = createTheme({
-  palette: {
-    mode: "dark",
-    primary: {
-      main: "#1976d2",
-    },
-  },
-});
-
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -68,10 +60,17 @@ function ResponsiveAppBar() {
 
   //custom
   const navigate = useNavigate();
+  const { logout, user, checkAuth } = useAuth();
+  console.log(logout);
+
+  React.useEffect(() => {
+    if (localStorage.getItem("token")) {
+      checkAuth();
+    }
+  }, []);
+  console.log(user);
 
   return (
-
-    // <ThemeProvider  theme={darkTheme}>
     <AppBar style={{ background: "#303030" }} position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
@@ -165,7 +164,8 @@ function ResponsiveAppBar() {
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 {/* after auth edit avatar */}
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+
+                <Avatar alt={user[0]} src="..." />
               </IconButton>
             </Tooltip>
             <Menu
@@ -192,7 +192,15 @@ function ResponsiveAppBar() {
                   </Typography>
                 </MenuItem>
               ))}
-              {/* add logout setting */}
+              <MenuItem
+                onClick={() => {
+                  // logout();
+                  handleCloseUserMenu();
+                }}>
+                <Typography textAlign="center" onClick={logout}>
+                  Logout
+                </Typography>
+              </MenuItem>
             </Menu>
           </Box>
         </Toolbar>
