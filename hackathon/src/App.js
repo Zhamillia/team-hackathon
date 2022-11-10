@@ -7,7 +7,13 @@ import AuthContextProvider from "./contexts/AuthContextProvider";
 
 const App = () => {
   return (
-    <>
+    <div
+      style={
+        {
+          // position: "relative",
+          // height: "100vh",
+        }
+      }>
       <ProductContextProvider>
         <AuthContextProvider>
           <Navbar />
@@ -15,7 +21,7 @@ const App = () => {
           <Footer />
         </AuthContextProvider>
       </ProductContextProvider>
-    </>
+    </div>
   );
 };
 

@@ -19,7 +19,7 @@ export default function ProductCard({ item }) {
   return (
     <Card
       style={{
-        margin: "10px",
+        marginBottom: "50px",
         background: "#DCDCDC",
       }}
       bg-color="dark"
@@ -37,13 +37,23 @@ export default function ProductCard({ item }) {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small" onClick={() => navigate(`/edit/${item.id}`)}>
+        <Button
+          variant="contained"
+          size="small"
+          onClick={() => navigate(`/edit/${item.id}`)}>
           Edit
         </Button>
-        <Button size="small" onClick={() => navigate(`/details/${item.id}`)}>
+        <Button
+          variant="contained"
+          size="small"
+          onClick={() => navigate(`/details/${item.id}`)}>
           Details
         </Button>
-        <Button size="small" onClick={() => deleteProduct(item.id)}>
+        <Button
+          variant="contained"
+          disabled
+          size="small"
+          onClick={() => deleteProduct(item.id)}>
           Delete
         </Button>
       </CardActions>

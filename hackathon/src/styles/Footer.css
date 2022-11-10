@@ -1,12 +1,7 @@
-body {
-  position: relative;
-}
-
 footer {
-  position: sticky;
+  position: absolute;
   left: 0;
   bottom: 0;
-
   width: 100%;
   height: 80px;
   text-align: center;
@@ -31,8 +26,10 @@ footer {
 }
 #register-h2 {
   margin: 0;
+
   line-height: 60px;
   font-size: 30px;
+
   letter-spacing: 0.01em;
 
   color: dark;
@@ -40,9 +37,7 @@ footer {
 }
 
 #register-btn {
-
-  /* background-color: transparent; */
-
+  background-color: transparent;
   border: 2px solid black;
   border-radius: 3px;
   padding: 5px 0;
@@ -60,6 +55,7 @@ footer {
   border: 2px solid black;
   border-radius: 3px;
   padding: 5px 0;
+  /* border-radius: 8px; */
 }
 #log-div {
   background-color: rgb(245, 245, 242);
@@ -99,14 +95,10 @@ footer {
   margin-bottom: 15px;
 }
 #log-btn {
-
-
+  background-color: transparent;
   border: 2px solid black;
   border-radius: 3px;
   padding: 5px 0;
   cursor: pointer;
   transition: 200ms;
-}
-#log-btn:hover {
-  scale: 1.05;
 }
