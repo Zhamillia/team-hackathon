@@ -45,14 +45,6 @@
       "description": "Чип Apple H1 в каждой чашке наушников, отвечающий за рендеринг аудио и стабильное подключение. Пространственное аудио с динамическим отслеживанием головы",
       "price": 620,
       "picture": "https://www.istore.kg/media/products/AirPods-Max-Blue.webp",
-      "type": "AirPods",
-      "id": 6
-    },
-    {
-      "name": "AiPods Max",
-      "description": "Чип Apple H1 в каждой чашке наушников, отвечающий за рендеринг аудио и стабильное подключение. Пространственное аудио с динамическим отслеживанием головы",
-      "price": 620,
-      "picture": "https://www.istore.kg/media/products/AirPods-Max-Blue.webp",
       "type": "phone",
       "id": 6
     }

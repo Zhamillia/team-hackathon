@@ -68,7 +68,7 @@ const CartContextProvider = ({ children }) => {
   const addProductToCart = product => {
     let cart = JSON.parse(localStorage.getItem("cart"));
 
-    if (!cart) {
+    if (!cart || !cart?.products) {
       cart = {
         products: [],
         totalPrice: 0,
@@ -128,7 +128,7 @@ const CartContextProvider = ({ children }) => {
   const checkProductInCart = id => {
     let cart = JSON.parse(localStorage.getItem("cart"));
 
-    if (cart) {
+    if (cart && cart.products) {
       let newCart = cart.products.filter(elem => elem.item.id === id);
       return newCart.length > 0 ? true : false;
     }
