@@ -18,11 +18,13 @@ const AuthContextProvider = ({ children }) => {
   };
 
   const register = async (username, password) => {
+    // console.log(username, password);
     let formData = new FormData();
     formData.append("username", username);
     formData.append("password", password);
 
     try {
+      console.log(formData.get("password"), formData.get("username"), config);
       const res = await axios.post(`${API}register/`, formData, config);
       console.log(res);
       navigate("/login");
