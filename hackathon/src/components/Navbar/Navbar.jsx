@@ -23,7 +23,6 @@ import HeadphonesBatteryOutlinedIcon from "@mui/icons-material/HeadphonesBattery
 
 import AppleIcon from "@mui/icons-material/Apple";
 
-
 // custom
 
 import { useNavigate, useSearchParams } from "react-router-dom";
@@ -38,7 +37,6 @@ import { useCart } from "../../contexts/CartContextProvider";
 import Badge from "@mui/material/Badge";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import GradeIcon from "@mui/icons-material/Grade";
-
 
 const pages = [
   {
@@ -102,14 +100,14 @@ function ResponsiveAppBar() {
 
   const { cartLength } = useCart();
 
-
   React.useEffect(() => {
     if (localStorage.getItem("token")) {
       checkAuth();
     }
   }, []);
 
-
+  // const userName = localStorage.getItem("username");
+  // console.log(userName);
   const { fetchByParams } = useProducts();
   const [state, setState] = React.useState({
     left: false,
@@ -255,14 +253,21 @@ function ResponsiveAppBar() {
             LOGO
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            {pages.map(page => (
+            {/* {pages.map(page => ( */}
+            <Button
+              onClick={() => navigate("/")}
+              sx={{ my: 2, color: "white", display: "block" }}>
+              Home
+            </Button>
+            {user == "Jami" && (
               <Button
-                key={page.type}
-                onClick={() => navigate(page.path)}
+                onClick={() => navigate("/admin")}
                 sx={{ my: 2, color: "white", display: "block" }}>
-                {page.type}
+                Admin
               </Button>
-            ))}
+            )}
+
+            {/* ))} */}
             {/* Filter Panel */}
             <MenuItem onClick={toggleDrawer("left", true)}>
               <Typography textAlign="center">FILTER</Typography>
