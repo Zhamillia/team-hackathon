@@ -1,5 +1,6 @@
 body {
   position: relative;
+  /* background-color: #333; */
 }
 
 footer {
@@ -12,14 +13,15 @@ footer {
   text-align: center;
 }
 #register-div {
-  background-color: rgb(245, 245, 242);
+  background-color: rgb(33, 33, 33);
+  color: white;
   border: black solid 2px;
   border-radius: 15px;
-  margin-top: 130px;
+  margin-top: 150px;
   margin-left: 28%;
 
   width: 570px;
-  height: 260px;
+  height: 280px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -40,10 +42,7 @@ footer {
 }
 
 #register-btn {
-
-  /* background-color: transparent; */
-
-  border: 2px solid black;
+  border: 2px solid white;
   border-radius: 3px;
   padding: 5px 0;
   cursor: pointer;
@@ -57,19 +56,20 @@ footer {
 .register-inp {
   width: 290px;
   background-color: transparent;
-  border: 2px solid black;
+  border: 2px solid white;
   border-radius: 3px;
   padding: 5px 0;
+  color: white;
 }
 #log-div {
-  background-color: rgb(245, 245, 242);
-  border: black solid 2px;
+  background-color: rgb(33, 33, 33);
+  color: white;
   border-radius: 15px;
-  margin-top: 130px;
+  margin-top: 150px;
   margin-left: 28%;
 
   width: 570px;
-  height: 260px;
+  height: 280px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -93,15 +93,14 @@ footer {
 .log-inp {
   width: 290px;
   background-color: transparent;
-  border: 2px solid black;
+  border: 2px solid white;
   border-radius: 3px;
   padding: 5px 0;
-  margin-bottom: 15px;
+  margin-bottom: 22px;
+  color: white;
 }
 #log-btn {
-
-
-  border: 2px solid black;
+  border: 2px solid white;
   border-radius: 3px;
   padding: 5px 0;
   cursor: pointer;

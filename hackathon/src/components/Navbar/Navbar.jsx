@@ -12,11 +12,23 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import PhoneIphoneIcon from "@mui/icons-material/PhoneIphone";
+import LaptopMacOutlinedIcon from "@mui/icons-material/LaptopMacOutlined";
+import TabletMacOutlinedIcon from "@mui/icons-material/TabletMacOutlined";
+import DesktopWindowsOutlinedIcon from "@mui/icons-material/DesktopWindowsOutlined";
+import WatchOutlinedIcon from "@mui/icons-material/WatchOutlined";
+import HeadphonesBatteryOutlinedIcon from "@mui/icons-material/HeadphonesBatteryOutlined";
 
 // custom
 
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContextProvider";
+import { useProducts } from "../../contexts/ProductContextProvider";
+import { Drawer } from "@mui/material";
+import { useEffect, useState } from "react";
+import "../../styles/ProductSideBar.css";
 
 const pages = [
   {
@@ -58,17 +70,98 @@ function ResponsiveAppBar() {
     setAnchorElUser(null);
   };
 
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [search, setSearch] = useState(searchParams.get("q") || "");
+
+  const { getProducts } = useProducts();
+
+  useEffect(() => {
+    setSearchParams({
+      q: search,
+    });
+  }, [search]);
+
+  useEffect(() => {
+    getProducts();
+    // setPage(1);
+  }, [searchParams]);
+
   //custom
   const navigate = useNavigate();
   const { logout, user, checkAuth } = useAuth();
-  console.log(logout);
+  // console.log(logout);
 
   React.useEffect(() => {
     if (localStorage.getItem("token")) {
       checkAuth();
     }
   }, []);
-  console.log(user);
+  // console.log(user);
+
+  const { fetchByParams } = useProducts();
+  const [state, setState] = React.useState({
+    left: false,
+  });
+
+  const sideBarItems = [
+    {
+      icon: <PhoneIphoneIcon style={{ margin: "10px" }} />,
+      type: "Iphone",
+    },
+    {
+      icon: <LaptopMacOutlinedIcon style={{ margin: "10px" }} />,
+      type: "MacBook",
+    },
+    {
+      icon: <TabletMacOutlinedIcon style={{ margin: "10px" }} />,
+      type: "iPad",
+    },
+    {
+      icon: <DesktopWindowsOutlinedIcon style={{ margin: "10px" }} />,
+      type: "iMac",
+    },
+    {
+      icon: <WatchOutlinedIcon style={{ margin: "10px" }} />,
+      type: "Watch",
+    },
+    {
+      icon: <HeadphonesBatteryOutlinedIcon style={{ margin: "10px" }} />,
+      type: "AirPods",
+    },
+  ];
+  //  !
+  const toggleDrawer = (anchor, open) => event => {
+    if (
+      event.type === "keydown" &&
+      (event.key === "Tab" || event.key === "Shift")
+    ) {
+      return;
+    }
+
+    setState({ ...state, [anchor]: open });
+  };
+
+  const list = anchor => (
+    <Box
+      sx={{ width: anchor === "top" || anchor === "bottom" ? "auto" : 150 }}
+      role="presentation"
+      onClick={toggleDrawer(anchor, false)}
+      onKeyDown={toggleDrawer(anchor, false)}
+      className="sideBar">
+      <List className="sideBarIcon">
+        {sideBarItems.map((item, index) => (
+          <ListItem
+            key={index}
+            disablePadding
+            onClick={() => {
+              fetchByParams("type", item.type);
+            }}>
+            {item?.icon} {item.type}
+          </ListItem>
+        ))}
+      </List>
+    </Box>
+  );
 
   return (
     <AppBar style={{ background: "#303030" }} position="static">
@@ -157,9 +250,30 @@ function ResponsiveAppBar() {
                 {page.type}
               </Button>
             ))}
+            {/* Filter Panel */}
+            <MenuItem onClick={toggleDrawer("left", true)}>
+              <Typography textAlign="center">FILTER</Typography>
+            </MenuItem>
+
+            <Drawer
+              anchor={"left"}
+              open={state["left"]}
+              onClose={toggleDrawer("left", false)}>
+              {list("left")}
+            </Drawer>
+
+            {/* Filter panel end */}
             {/* add cart and likes */}
           </Box>
-
+          <Box>
+            <input
+              className="inputSideBar"
+              type="text"
+              value={search}
+              onChange={e => setSearch(e.target.value)}
+              placeholder="Search..."
+            />
+          </Box>
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
@@ -192,6 +306,7 @@ function ResponsiveAppBar() {
                   </Typography>
                 </MenuItem>
               ))}
+
               <MenuItem
                 onClick={() => {
                   // logout();

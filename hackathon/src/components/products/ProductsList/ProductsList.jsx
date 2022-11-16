@@ -2,11 +2,12 @@ import React, { useEffect, useState } from "react";
 import { useProducts } from "../../../contexts/ProductContextProvider";
 import ProductCard from "../ProductCard/ProductCard";
 import Pagination from "@mui/material/Pagination";
-import Button from "@mui/material/Button";
+// import Button from "@mui/material/Button";
+import { FaBars } from "react-icons/fa";
 
 import "../../../styles/ProductsList.css";
 
-const ProductsList = ({ page, setPage, changeSideBarStatus }) => {
+const ProductsList = ({ page, setPage }) => {
   const { products, getProducts } = useProducts();
 
   useEffect(() => {
@@ -30,17 +31,6 @@ const ProductsList = ({ page, setPage, changeSideBarStatus }) => {
   return (
     <div>
       <h2 style={{ marginLeft: "100px", fontSize: "24px" }}>Products List:</h2>
-
-      <Button
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          marginLeft: "100px",
-        }}
-        variant="contained"
-        onClick={changeSideBarStatus}>
-        Filter&Search Menu
-      </Button>
       <div className="card">
         {products ? (
           currentData().map(item => <ProductCard key={item.id} item={item} />)
