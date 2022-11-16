@@ -1,62 +1,27 @@
-import * as React from "react";
-import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-
-//custom
+import React from "react";
 import { useNavigate } from "react-router-dom";
-import { useProducts } from "../../../contexts/ProductContextProvider";
 
-export default function ProductCard({ item }) {
-  //custom
+const ProductCard = ({ item }) => {
   const navigate = useNavigate();
-  const { deleteProduct } = useProducts();
-  // const { addProductToCart, checkProductInCart } = useCart();
 
   return (
-    <Card
-      style={{
-        marginBottom: "50px",
-        background: "#DCDCDC",
-      }}
-      bg-color="dark"
-      sx={{ maxWidth: 345 }}>
-      <CardMedia component="img" height="140" image={item.picture} alt="img" />
-      <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-          {item.name}
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          {item.price}
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          {item.description}
-        </Typography>
-      </CardContent>
-      <CardActions>
-        <Button
-          variant="contained"
-          size="small"
-          onClick={() => navigate(`/edit/${item.id}`)}>
-          Edit
-        </Button>
-        <Button
-          variant="contained"
-          size="small"
-          onClick={() => navigate(`/details/${item.id}`)}>
-          Details
-        </Button>
-        <Button
-          variant="contained"
-          disabled
-          size="small"
-          onClick={() => deleteProduct(item.id)}>
-          Delete
-        </Button>
-      </CardActions>
-    </Card>
+    <div
+      id="div-card"
+      style={
+        item.id % 2 === 0
+          ? { backgroundColor: "gainsboro", color: "black" }
+          : { backgroundColor: "black", color: "white" }
+      }>
+      <h4 id="div-card-h4">{item.name}</h4>
+      <img
+        id="div-card-img"
+        src={item.picture}
+        alt="img"
+        onClick={() => navigate(`/details/${item.id}`)}
+      />
+      <p id="div-card-p">{item.price} $</p>
+    </div>
   );
-}
+};
+
+export default ProductCard;

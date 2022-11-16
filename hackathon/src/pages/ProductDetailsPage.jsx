@@ -1,4 +1,5 @@
 import React from "react";
+import ProductDetails from "../components/products/ProductDetails/ProductDetails";
 
 const ProductDetailsPage = () => {
   return (
@@ -6,7 +7,7 @@ const ProductDetailsPage = () => {
       style={{
         height: "100vh",
       }}>
-      ProductDetailsPage
+      <ProductDetails />
     </div>
   );
 };
