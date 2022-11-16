@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useProducts } from "../../../contexts/ProductContextProvider";
 import ProductCard from "../ProductCard/ProductCard";
 import Pagination from "@mui/material/Pagination";
-import Button from "@mui/material/Button";
 
 import "../../../styles/ProductsList.css";
 
@@ -11,6 +10,7 @@ const ProductsList = ({ page, setPage, changeSideBarStatus }) => {
 
   useEffect(() => {
     getProducts();
+    console.log(currentData());
   }, []);
 
   const itemsOnPage = 6;
@@ -29,18 +29,9 @@ const ProductsList = ({ page, setPage, changeSideBarStatus }) => {
 
   return (
     <div>
-      <h2 style={{ marginLeft: "100px", fontSize: "24px" }}>Products List:</h2>
-
-      <Button
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          marginLeft: "100px",
-        }}
-        variant="contained"
-        onClick={changeSideBarStatus}>
-        Filter&Search Menu
-      </Button>
+      <br />
+      <br />
+      <br />
       <div className="card">
         {products ? (
           currentData().map(item => <ProductCard key={item.id} item={item} />)

@@ -1,4 +1,5 @@
 import React from "react";
+import Cart from "../components/Cart/Cart";
 
 const CartPage = () => {
   return (
@@ -6,7 +7,7 @@ const CartPage = () => {
       style={{
         height: "100vh",
       }}>
-      CartPage
+      <Cart />
     </div>
   );
 };

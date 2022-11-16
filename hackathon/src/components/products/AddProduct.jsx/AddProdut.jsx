@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useProducts } from "../../../contexts/ProductContextProvider";
+import { Button } from "@mui/material";
 
 const AddProduct = () => {
   const navigate = useNavigate();
@@ -32,43 +33,64 @@ const AddProduct = () => {
   };
 
   return (
-    <>
-      <h2>Add Product</h2>
+    <div style={{ height: "100vh" }}>
+      <div id="add-div">
+        <div id="add-form">
+          <h2 id="add-h2">Add Product</h2>
 
-      <input type="text" placeholder="Title" name="name" onChange={handleInp} />
-      <br />
-      <input
-        type="text"
-        placeholder="Description"
-        name="description"
-        onChange={handleInp}
-      />
-      <br />
-      <input
-        type="number"
-        placeholder="Price"
-        name="price"
-        onChange={handleInp}
-      />
-      <br />
-      <input
-        type="text"
-        placeholder="Picture"
-        name="picture"
-        onChange={handleInp}
-      />
-      <br />
-      <input type="text" placeholder="Type" name="type" onChange={handleInp} />
-      <br />
+          <input
+            className="add-inp"
+            type="text"
+            placeholder="Title"
+            name="name"
+            onChange={handleInp}
+          />
+          <br />
+          <input
+            className="add-inp"
+            type="text"
+            placeholder="Description"
+            name="description"
+            onChange={handleInp}
+          />
+          <br />
+          <input
+            className="add-inp"
+            type="number"
+            placeholder="Price"
+            name="price"
+            onChange={handleInp}
+          />
+          <br />
+          <input
+            className="add-inp"
+            type="text"
+            placeholder="Picture"
+            name="picture"
+            onChange={handleInp}
+          />
+          <br />
+          <input
+            className="add-inp"
+            type="text"
+            placeholder="Type"
+            name="type"
+            onChange={handleInp}
+          />
+          <br />
 
-      <button
-        onClick={() => {
-          addProduct(product);
-          navigate("/products");
-        }}>
-        Save
-      </button>
-    </>
+          <Button
+            variant="contained"
+            id="add-btn"
+            onClick={() => {
+              addProduct(product);
+              navigate("/products");
+            }}>
+            Save
+          </Button>
+        </div>
+      </div>
+    </div>
   );
 };
 
