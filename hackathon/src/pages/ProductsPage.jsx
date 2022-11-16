@@ -13,6 +13,7 @@ const ProductsPage = () => {
       <div className="productsPage">products</div>
     </div>
   );
+
 };
 
 export default ProductsPage;

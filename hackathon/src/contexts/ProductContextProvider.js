@@ -9,6 +9,7 @@ export const useProducts = () => useContext(productContext);
 const INIT_STATE = {
   products: [],
   productDetails: null,
+  isSideBar: false,
 };
 
 const reducer = (state = INIT_STATE, action) => {
@@ -63,9 +64,25 @@ const ProductContextProvider = ({ children }) => {
   };
 
   // фильтрация тут должна быть
+  const fetchByParams = (query, value) => {
+    console.log(value, query);
+    const search = new URLSearchParams(location.search);
+
+    if (value === "all") {
+      search.delete(query);
+    } else {
+      search.set(query, value);
+    }
+
+    const url = `${location.pathname}?${search.toString()}`;
+
+    navigate(url);
+    getProducts();
+  };
 
   const values = {
     products: state.products,
+    isSideBar: state.isSideBar,
     productDetails: state.productDetails,
 
     addProduct,
@@ -73,6 +90,7 @@ const ProductContextProvider = ({ children }) => {
     deleteProduct,
     getProductDetails,
     saveEditedProduct,
+    fetchByParams,
   };
 
   return (

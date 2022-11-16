@@ -3,6 +3,7 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+
 }
 
 footer {
@@ -15,16 +16,16 @@ footer {
   text-align: center;
 }
 #register-div {
-  background-color: black;
-  opacity: 75%;
+
+  background-color: rgb(33, 33, 33);
   color: white;
   border: black solid 2px;
   border-radius: 15px;
-  margin-top: 130px;
+  margin-top: 150px;
   margin-left: 28%;
 
   width: 570px;
-  height: 260px;
+  height: 280px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -45,9 +46,10 @@ footer {
 }
 
 #register-btn {
-  /* background-color: transparent; */
+  border: 2px solid white;
 
-  border: 2px solid black;
+
+
   border-radius: 3px;
   padding: 5px 0;
   cursor: pointer;
@@ -64,17 +66,19 @@ footer {
   border: 2px solid white;
   border-radius: 3px;
   padding: 5px 0;
+  color: white;
 }
 #log-div {
-  background-color: black;
+
+  background-color: rgb(33, 33, 33);
   color: white;
-  border: black solid 2px;
+
   border-radius: 15px;
-  margin-top: 130px;
+  margin-top: 150px;
   margin-left: 28%;
 
   width: 570px;
-  height: 260px;
+  height: 280px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -101,10 +105,12 @@ footer {
   border: 2px solid white;
   border-radius: 3px;
   padding: 5px 0;
-  margin-bottom: 15px;
+  margin-bottom: 22px;
+  color: white;
 }
 #log-btn {
-  border: 2px solid black;
+
+  border: 2px solid white;
   border-radius: 3px;
   padding: 5px 0;
   cursor: pointer;
@@ -153,6 +159,7 @@ footer {
 }
 #add-btn {
   border: 2px solid black;
+
   border-radius: 3px;
   padding: 5px 0;
   cursor: pointer;

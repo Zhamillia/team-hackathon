@@ -1,0 +1,23 @@
+.sideBar {
+  background: black;
+  color: white;
+  height: 100vh;
+}
+.sideBarIcon {
+  cursor: pointer;
+}
+.MuiList-root li:hover {
+  transition: all 0.5s;
+  background-color: lightskyblue;
+  margin: 5px;
+}
+.listItemIcon {
+  color: white;
+}
+.inputSideBar {
+  width: 180px;
+  height: 25px;
+  margin-right: 100px;
+  font-family: inherit;
+  border: 2px solid lightskyblue;
+}
