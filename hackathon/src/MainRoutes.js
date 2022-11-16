@@ -5,6 +5,7 @@ import AdminPage from "./pages/AdminPage";
 import CartPage from "./pages/CartPage";
 import EditProductPage from "./pages/EditProductPage";
 import HomePage from "./pages/HomePage";
+import FavoritesPage from "./pages/FavoritesPage";
 import ProductDetailsPage from "./pages/ProductDetailsPage";
 import ProductsPage from "./pages/ProductsPage";
 import RegistrationPage from "./pages/RegistrationPage";
@@ -39,23 +40,28 @@ const MainRoutes = () => {
       id: 5,
     },
     {
-      link: "/products",
-      element: <ProductsPage />,
-      id: 6,
-    },
-    {
       link: "/details/:id",
       element: <ProductDetailsPage />,
-      id: 7,
+      id: 6,
     },
     {
       link: "/edit/:id",
       element: <EditProductPage />,
-      id: 8,
+      id: 7,
     },
     {
       link: "/cart",
       element: <CartPage />,
+      id: 8,
+    },
+    {
+      link: "/products",
+      element: <ProductsPage />,
+      id: 8,
+    },
+    {
+      link: "/favorites",
+      element: <FavoritesPage />,
       id: 9,
     },
   ];

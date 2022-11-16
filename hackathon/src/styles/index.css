@@ -1,6 +1,9 @@
 body {
   position: relative;
-  /* background-color: #333; */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
 }
 
 footer {
@@ -13,6 +16,7 @@ footer {
   text-align: center;
 }
 #register-div {
+
   background-color: rgb(33, 33, 33);
   color: white;
   border: black solid 2px;
@@ -43,6 +47,9 @@ footer {
 
 #register-btn {
   border: 2px solid white;
+
+
+
   border-radius: 3px;
   padding: 5px 0;
   cursor: pointer;
@@ -62,8 +69,10 @@ footer {
   color: white;
 }
 #log-div {
+
   background-color: rgb(33, 33, 33);
   color: white;
+
   border-radius: 15px;
   margin-top: 150px;
   margin-left: 28%;
@@ -100,6 +109,7 @@ footer {
   color: white;
 }
 #log-btn {
+
   border: 2px solid white;
   border-radius: 3px;
   padding: 5px 0;
@@ -108,4 +118,128 @@ footer {
 }
 #log-btn:hover {
   scale: 1.05;
+}
+#add-div {
+  background-color: black;
+  color: white;
+  border: black solid 2px;
+  border-radius: 15px;
+  margin-top: 130px;
+  margin-left: 28%;
+
+  width: 550px;
+  height: 480px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#add-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#add-h2 {
+  margin: 0;
+
+  line-height: 60px;
+  font-size: 30px;
+
+  letter-spacing: 0.01em;
+
+  color: dark;
+  text-align: center;
+}
+.add-inp {
+  width: 290px;
+  background-color: transparent;
+  border: 2px solid white;
+  border-radius: 3px;
+  padding: 5px 0;
+  margin-bottom: 15px;
+}
+#add-btn {
+  border: 2px solid black;
+
+  border-radius: 3px;
+  padding: 5px 0;
+  cursor: pointer;
+  transition: 200ms;
+}
+#add-btn:hover {
+  scale: 1.05;
+}
+#edit-div {
+  background-color: black;
+  color: white;
+  border: solid 2px;
+  border-radius: 15px;
+  margin-top: 130px;
+  margin-left: 28%;
+
+  width: 550px;
+  height: 480px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#edit-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#edit-h2 {
+  margin: 0;
+
+  line-height: 60px;
+  font-size: 30px;
+
+  letter-spacing: 0.01em;
+
+  color: dark;
+  text-align: center;
+}
+#edit-btn {
+  border: 2px solid black;
+  border-radius: 3px;
+  padding: 5px 0;
+  cursor: pointer;
+  transition: 200ms;
+}
+#edit-btn:hover {
+  scale: 1.05;
+}
+/* #card {
+  background-color: black;
+} */
+#div-card {
+  margin-bottom: 20px;
+
+  /* border: black solid 2px; */
+  width: 26%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  border: 5px;
+}
+#div-card-h4 {
+  font-size: 32px;
+
+  font-weight: bold;
+}
+#div-card-img {
+  width: 65%;
+}
+#div-card-p {
+  /* color: gainsboro; */
+  font-size: 24px;
+}
+#div-card-img:hover {
+  scale: 1.058;
+}
+.card {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
 }

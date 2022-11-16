@@ -21,19 +21,29 @@ import DesktopWindowsOutlinedIcon from "@mui/icons-material/DesktopWindowsOutlin
 import WatchOutlinedIcon from "@mui/icons-material/WatchOutlined";
 import HeadphonesBatteryOutlinedIcon from "@mui/icons-material/HeadphonesBatteryOutlined";
 
+import AppleIcon from "@mui/icons-material/Apple";
+
+
 // custom
 
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContextProvider";
+
 import { useProducts } from "../../contexts/ProductContextProvider";
 import { Drawer } from "@mui/material";
 import { useEffect, useState } from "react";
 import "../../styles/ProductSideBar.css";
 
+import { useCart } from "../../contexts/CartContextProvider";
+import Badge from "@mui/material/Badge";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import GradeIcon from "@mui/icons-material/Grade";
+
+
 const pages = [
   {
-    type: "Products",
-    path: "/products",
+    type: "Home",
+    path: "/",
   },
   {
     type: "Admin",
@@ -89,14 +99,16 @@ function ResponsiveAppBar() {
   //custom
   const navigate = useNavigate();
   const { logout, user, checkAuth } = useAuth();
-  // console.log(logout);
+
+  const { cartLength } = useCart();
+
 
   React.useEffect(() => {
     if (localStorage.getItem("token")) {
       checkAuth();
     }
   }, []);
-  // console.log(user);
+
 
   const { fetchByParams } = useProducts();
   const [state, setState] = React.useState({
@@ -164,10 +176,10 @@ function ResponsiveAppBar() {
   );
 
   return (
-    <AppBar style={{ background: "#303030" }} position="static">
+    <AppBar style={{ background: "black" }} position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
+          <AppleIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
           <Typography
             variant="h6"
             noWrap
@@ -213,17 +225,18 @@ function ResponsiveAppBar() {
                 display: { xs: "block", md: "none" },
               }}>
               {pages.map(page => (
-                <MenuItem key={page.type} onClick={handleCloseNavMenu}>
-                  <Typography
-                    textAlign="center"
-                    onClick={() => navigate(page.path)}>
-                    {page.type}
-                  </Typography>
+                <MenuItem
+                  key={page.type}
+                  onClick={() => {
+                    handleCloseNavMenu();
+                    navigate(page.path);
+                  }}>
+                  <Typography textAlign="center">{page.type}</Typography>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
+          <AppleIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
           <Typography
             variant="h5"
             noWrap
@@ -264,6 +277,23 @@ function ResponsiveAppBar() {
 
             {/* Filter panel end */}
             {/* add cart and likes */}
+            <IconButton
+              size="large"
+              color="inherit"
+              onClick={() => navigate("/cart")}>
+              <Badge badgeContent={cartLength} color="error">
+                <ShoppingCartIcon />
+              </Badge>
+            </IconButton>
+            <IconButton onClick={() => navigate("/favorites")}>
+              <GradeIcon
+                size="small"
+                color="warning"
+                style={{
+                  color: "#fff",
+                }}
+              />
+            </IconButton>
           </Box>
           <Box>
             <input
@@ -298,23 +328,22 @@ function ResponsiveAppBar() {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}>
               {settings.map(setting => (
-                <MenuItem key={setting.type} onClick={handleCloseUserMenu}>
-                  <Typography
-                    textAlign="center"
-                    onClick={() => navigate(setting.path)}>
-                    {setting.type}
-                  </Typography>
+                <MenuItem
+                  key={setting.type}
+                  onClick={() => {
+                    navigate(setting.path);
+                    handleCloseUserMenu();
+                  }}>
+                  <Typography textAlign="center">{setting.type}</Typography>
                 </MenuItem>
               ))}
 
               <MenuItem
                 onClick={() => {
-                  // logout();
                   handleCloseUserMenu();
+                  logout();
                 }}>
-                <Typography textAlign="center" onClick={logout}>
-                  Logout
-                </Typography>
+                <Typography textAlign="center">Logout</Typography>
               </MenuItem>
             </Menu>
           </Box>

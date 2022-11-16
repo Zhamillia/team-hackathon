@@ -5,6 +5,7 @@ import Pagination from "@mui/material/Pagination";
 // import Button from "@mui/material/Button";
 import { FaBars } from "react-icons/fa";
 
+
 import "../../../styles/ProductsList.css";
 
 const ProductsList = ({ page, setPage }) => {
@@ -12,6 +13,7 @@ const ProductsList = ({ page, setPage }) => {
 
   useEffect(() => {
     getProducts();
+    console.log(currentData());
   }, []);
 
   const itemsOnPage = 6;
@@ -30,7 +32,13 @@ const ProductsList = ({ page, setPage }) => {
 
   return (
     <div>
+
       <h2 style={{ marginLeft: "100px", fontSize: "24px" }}>Products List:</h2>
+
+      <br />
+      <br />
+      <br />
+
       <div className="card">
         {products ? (
           currentData().map(item => <ProductCard key={item.id} item={item} />)
