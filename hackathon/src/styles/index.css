@@ -3,7 +3,6 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-
 }
 
 footer {
@@ -16,7 +15,6 @@ footer {
   text-align: center;
 }
 #register-div {
-
   background-color: rgb(33, 33, 33);
   color: white;
   border: black solid 2px;
@@ -48,8 +46,6 @@ footer {
 #register-btn {
   border: 2px solid white;
 
-
-
   border-radius: 3px;
   padding: 5px 0;
   cursor: pointer;
@@ -69,7 +65,6 @@ footer {
   color: white;
 }
 #log-div {
-
   background-color: rgb(33, 33, 33);
   color: white;
 
@@ -109,7 +104,6 @@ footer {
   color: white;
 }
 #log-btn {
-
   border: 2px solid white;
   border-radius: 3px;
   padding: 5px 0;
@@ -150,6 +144,7 @@ footer {
   text-align: center;
 }
 .add-inp {
+  color: white;
   width: 290px;
   background-color: transparent;
   border: 2px solid white;

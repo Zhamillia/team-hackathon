@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useProducts } from "../../../contexts/ProductContextProvider";
 import { Button } from "@mui/material";
 import { useFavorites } from "../../../contexts/FavoritesContextProvider";
@@ -10,14 +10,17 @@ import GradeIcon from "@mui/icons-material/Grade";
 
 const ProductDetails = ({ item }) => {
   const { id } = useParams();
-  const { getProductDetails, productDetails } = useProducts();
-
+  const { getProductDetails, productDetails, deleteProduct } = useProducts();
+  const navigate = useNavigate();
   useEffect(() => {
     getProductDetails(id);
   }, []);
   const { addProductToCart, checkProductInCart } = useCart();
   const { addProductToFavorites, checkProductInFavorites } = useFavorites();
-
+  const handleDelete = () => {
+    deleteProduct(id);
+    navigate("/");
+  };
   return (
     <>
       {productDetails ? (
@@ -53,7 +56,8 @@ const ProductDetails = ({ item }) => {
         </IconButton>
       )}
 
-      <Button>Home</Button>
+      <Button onClick={() => navigate(`/edit/${id}`)}>Edit</Button>
+      <Button onClick={handleDelete}>delete</Button>
     </>
   );
 };
